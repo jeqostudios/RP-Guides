@@ -77,9 +77,5 @@ Different resolutions are supported but must be specified in the shader. To chan
 
 Note: 16711680 is the decimal value for RGB(255,0,0) (red)
 
-## Additional Resources
-- [FancyPants GitHub Repository](https://github.com/Ancientkingg/fancyPants)
-- [RGB to Decimal Converter](https://www.shodor.org/stella2java/rgbint.html)
-
 ## Need Help?
 Join our [Discord community](https://jeqo.net/discord) for support and discussions.
