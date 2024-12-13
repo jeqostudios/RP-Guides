@@ -30,8 +30,10 @@ Different resolutions are supported but must be specified in the shader. To chan
 1. Navigate to `assets/minecraft/shaders/core/`
 2. Edit `rendertype_armor_cutout_no_cull.fsh`
 3. Modify line 6:
-```glsl
-#define TEX_RES 16```
+```
+glsl
+#define TEX_RES 16
+```
 
 #### Layer Overlays
 - `leather_layer_1_overlay.png` and `leather_layer_2_overlay.png` must always exist
@@ -70,8 +72,10 @@ Different resolutions are supported but must be specified in the shader. To chan
 ### Step 6: In-Game Usage
 1. Convert your color ID RGB values to decimal using an RGB to decimal converter
 2. Use the following command format:
-```minecraft
-/give @s leather_helmet{display:{color:16711680}}```
+```
+minecraft
+/give @s leather_helmet{display:{color:16711680}}
+```
 
 Note: 16711680 is the decimal value for RGB(255,0,0) (red)
 
