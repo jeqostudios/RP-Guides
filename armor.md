@@ -30,8 +30,7 @@ Different resolutions are supported but must be specified in the shader. To chan
 1. Navigate to `assets/minecraft/shaders/core/`
 2. Edit `rendertype_armor_cutout_no_cull.fsh`
 3. Modify line 6:
-```
-glsl
+```glsl
 #define TEX_RES 16
 ```
 
@@ -72,8 +71,7 @@ glsl
 ### Step 6: In-Game Usage
 1. Convert your color ID RGB values to decimal using an RGB to decimal converter
 2. Use the following command format:
-```
-minecraft
+```minecraft
 /give @s leather_helmet{display:{color:16711680}}
 ```
 
