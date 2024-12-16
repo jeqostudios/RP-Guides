@@ -1,81 +1,100 @@
-# Custom Armor Guide
+# Armor
 
-## Introduction
-Custom armor is now available in modern versions of Minecraft using core shaders. Note that alternative render engines such as Optifine, Iris, etc. will be incompatible or may cause additional errors. This guide uses a core shader created by [AncientKingg](https://github.com/Ancientkingg/fancyPants).
+Custom armor is now available to be implemented in modern versions of Minecraft using core shaders. With the use of core shaders, alternative render engines such as Optifine, Iris, etc. will be incompatible or may cause additional errors, so please take caution. The method covered in this guide uses a core shader created by [AncientKingg](https://github.com/Ancientkingg/fancyPants).
 
-[Download Example Resource Pack](https://jeqo.net/files/fancyPants-master.zip)
+For a pre-made example resource pack click [here](https://jeqo.net/files/fancyPants-master.zip).
 
 ## Information
 
-Each armor set must be contained within a 64x32 canvas (default for 16 bit resolution armors).
+Each armor set (if adding multiple especially) must be contained within a 64x32 canvas (default for 16 bit resolution armors)
 
 ### Armor Identification
-Each armor set consists of two files (one for each layer) with three "settings pixels":
 
-1. **Color ID (0,0)**: Assigns the color to the armor for in-game usage
-2. **Animation (0,1)**: Contains RGB values for:
-   - Amount of frames
-   - Speed (default: 24 seconds per frame)
-   - Interpolation (Boolean: >0 = true, 0 = false)
-3. **Additional Settings (0,2)**: Contains RGB values for:
-   - Emissivity (1 = partial, >1 = full)
-   - Tint (disabled by default)
-   - N/A
+Each armor set will consist of two files, one for each layer, and within those texture files each armor will have 3 "settings pixels". These 3 pixels are:
+
+- (0,0) = Color ID; this assigns the color to the armor (for usage in-game).
+
+- (0,1) = Animation; this contains rgb(amount of frames, speed, interpolation). Speed by default is 24 seconds per frame, and interpolation is a Boolean value (can be set to true (> 0) or false (0).
+
+- (0,2) = Additional armor settings; this contains rgb(emissivity, tint, N/A). Color tinting disabled by default and can be toggled. Emissivity can be set to 1 for partial emissivity and > 1 for full emissivity. For partial emissivity armors, the armor texture to the right will be used as an emissivity map; the alpha of the pixel will act as the emissivity level.
 
 ### Restrictions
 
 #### Texture Resolutions
-Different resolutions are supported but must be specified in the shader. To change from default (16):
 
-1. Navigate to `assets/minecraft/shaders/core/`
-2. Edit `rendertype_armor_cutout_no_cull.fsh`
-3. Modify line 6:
-```glsl
+Different armor texture resolutions are supported, though they must be specified within the shader. To change the resolution value from the default, 16, to something else, go to `\assets\minecraft\shaders\core\` and in the `rendertype_armor_cutout_no_cull.fsh` file adjust line 6 (TEX_RES).
+
+```
 #define TEX_RES 16
 ```
 
 #### Layer Overlays
-- `leather_layer_1_overlay.png` and `leather_layer_2_overlay.png` must always exist
-- Both must remain completely transparent to avoid errors
+
+You must always have a leather_layer_1_overlay.png and leather_layer_2_overlay.png file, and both must remain completely transparent at all times, otherwise you will encounter errors.
 
 ## Creating Custom Armor
 
-### Step 1: Creating Layer Files
-1. Create a 32x64 sprite for layer 1
-2. Create a 32x64 sprite for layer 2
+### Step 1. Creating Your Armor Layer Files
 
-![Layer Example](https://jeqo.net/data/attachments/0/143-a739c88c191ef669b53351305c012d2a.jpg)
+First, you need to understand that the layer 1 and layer 2 of your armor will be separated into two different textures. You can begin by creating a 32x64 sprite for layer 1 of your armor. Do the same for layer 2.
 
-### Step 2: Color ID Assignment
-1. Add a white pixel (#ffffff) at 0,1 (required only for first armor texture)
-2. Set color ID at 0,0 (e.g., red: rgb(255,0,0))
+![leather_armor_layer_1.png](/images/guides/armor/layer1.png)
+*leather_armor_layer_1.png*
 
-### Step 3: Animation (Optional)
-1. Add frames below the armor texture
-2. Set animation pixel at 0,1 with RGB values for:
-   - Number of frames
-   - Animation speed
-   - Interpolation
+### Step 2. Assigning a Color ID
 
-### Step 4: Emissivity (Optional)
-1. Create a copy of armor texture to the right
-2. Use opacity for emissivity levels:
-   - Black = no emissivity
-   - White = full emissivity
+Before adding a color ID to your armor set, you will need to add a white (#ffffff) pixel at 0,1; this must be a white pixel at all times.
 
-### Step 5: Multiple Armor Sets
-- Add sets horizontally to the right
-- Each set must have a unique RGB color ID
-- Maintain proper spacing for emissivity maps if used
+Note: This white pixel ONLY has to be placed for the very first armor texture; it is not required for every armor texture.
 
-### Step 6: In-Game Usage
-1. Convert your color ID RGB values to decimal using an RGB to decimal converter
-2. Use the following command format:
-```minecraft
+![White pixel placement](/images/guides/armor/white-pixel.png)
+*White pixel is placed at 0,1 on leather_armor_layer_1.png*
+
+Once your white pixel is added, we can assign this armor set with a specific color ID. This will be placed above the white pixel (0,0) and can be set to any color, but if this is your first time setting up custom armors, I recommend setting it to something simple like red (rgb(255,0,0)).
+
+![Color ID assignment](/images/guides/armor/color-id.png)
+*Color ID is set to red using a pixel at 0,0 on leather_armor_layer_1.png*
+
+If your armor has no animation or emissivity, you're done! Now do the same for your layer_2 and make sure you use the exact same color for the color ID. Once you have both layers complete, they should look like the examples below. If you do not have animated armor or emissivity, skip to step 5.
+
+![Both layers complete](/images/guides/armor/both-layers.png)
+*Both leather_armor_layer_1.png and leather_armor_layer_2.png have the same color ID at 0,0 and the same white pixel at 0,1.*
+
+### Step 3. Animation (Optional)
+
+If you have an animated armor set and want to animate it, first you need to do is add as many frames as your armor has below the corresponding armor texture. You will also need to add a "settings pixel" for the animation at (0,1). This pixel contains rgb(amount of frames, speed, interpolation).
+
+The example to the right would allow for the leather overlay pieces to switch color every 'x' ticks that we set in our "settings pixel."
+
+![Animation frames](/images/guides/armor/animation.png)
+*leather_armor_layer_1.png expanded vertically to add animation frames.*
+
+### Step 4. Emissivity (Optional)
+
+If you want to have your armor set, or portions of it, emissive (glow in the dark essentially; similar to glow squids), you will have to create a copy of your armor texture to the right. This will be treated as an emissivity map; the opacity of the pixel will contribute to the emissivity level (black = no emissivity, white = full emissivity).
+
+![Emissivity mapping](/images/guides/armor/emissivity.png)
+*leather_armor_layer_1.png expanded horizontally with no color ID identifier for the second one. This allows an emissive map to take place.*
+
+Emissivity also works with animated armor textures, just make sure you create an emissivity map for each frame.
+
+### Step 5. Adding Multiple Armor Sets (Optional)
+
+If you want to add multiple armor sets, you can do so by adding them horizontally to the right as shown in the example below. The only thing you must note, you cannot have the same color ID "settings pixel" for multiple armor textures; you will have to have a unique RGB value for each armor texture.
+
+![Multiple armor sets](/images/guides/armor/multiple-sets.png)
+*Example of 5 total armor sets.
+The armor set with a blue color ID will have an emissive map due to the expanded emissive mapping.*
+
+### Step 6. In-Game Usage
+
+To get your new armor sets in-game we need to utilize the first "settings pixel." This was your color ID "setting pixel" and you will need to copy your RGB values and input them into a "RGB to decimal converter" tool like this. For example below our color ID pixel is red (255,0,0) which will have the decimal value of '16711680.'
+
+Once converted to a decimal value, you can use the following command in-game for each piece of armor:
+
+```
 /give @s leather_helmet{display:{color:16711680}}
 ```
 
-Note: 16711680 is the decimal value for RGB(255,0,0) (red)
-
-## Need Help?
-Join our [Discord community](https://jeqo.net/discord) for support and discussions.
+![RGB to decimal conversion](/images/guides/armor/rgb-decimal.png)
+*Using the color ID in 0,0 we can convert that into a decimal value for use in-game.*
