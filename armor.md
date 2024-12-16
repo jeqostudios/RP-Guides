@@ -1,5 +1,3 @@
-# Armor
-
 Custom armor is now available to be implemented in modern versions of Minecraft using core shaders. With the use of core shaders, alternative render engines such as Optifine, Iris, etc. will be incompatible or may cause additional errors, so please take caution. The method covered in this guide uses a core shader created by [AncientKingg](https://github.com/Ancientkingg/fancyPants).
 
 For a pre-made example resource pack click [here](https://jeqo.net/files/fancyPants-master.zip).

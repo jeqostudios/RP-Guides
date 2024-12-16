@@ -1,7 +1,3 @@
-# Custom Items
-
-This guide will help you create custom items in your resource pack.
-
 ## Creating a Custom Item
 
 ### Step 1. Adding Texture and Model Files

@@ -1,5 +1,3 @@
-# Atlases
-
 In snapshot 22w46a, a new directory atlases has been introduced for resource packs. Atlases stitch all your textures into one large sprite sheet to help with pack stability, load times, and performance.
 
 ## Information
