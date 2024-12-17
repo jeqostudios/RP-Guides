@@ -31,7 +31,6 @@ Different armor texture resolutions are supported, though they must be specified
 You must always have a leather_layer_1_overlay.png and leather_layer_2_overlay.png file, and both must remain completely transparent at all times, otherwise you will encounter errors.
 
 ## Creating Custom Armor
-
 ### Step 1. Creating Your Armor Layer Files
 
 First, you need to understand that the layer 1 and layer 2 of your armor will be separated into two different textures. You can begin by creating a 32x64 sprite for layer 1 of your armor. Do the same for layer 2.
