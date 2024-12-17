@@ -1,6 +1,3 @@
-A collection of comprehensive guides for Minecraft resource pack development, maintained by Jeqo and the community.
-
-## 📚 About
 This repository contains detailed guides for [jeqo.net](https://jeqo.net/guides) covering various aspects of Minecraft resource and data packs, from basic concepts to advanced techniques. The goal is to provide clear, accurate, and up-to-date information for resource pack developers of all skill levels.
 
 ## 🤝 Contributing
