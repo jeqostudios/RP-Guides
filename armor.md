@@ -10,11 +10,11 @@ Each armor set (if adding multiple especially) must be contained within a 64x32 
 
 Each armor set will consist of two files, one for each layer, and within those texture files each armor will have 3 "settings pixels". These 3 pixels are:
 
-- (0,0) = Color ID; this assigns the color to the armor (for usage in-game).
+* (0,0) = Color ID; this assigns the color to the armor (for usage in-game).
 
-- (0,1) = Animation; this contains rgb(amount of frames, speed, interpolation). Speed by default is 24 seconds per frame, and interpolation is a Boolean value (can be set to true (> 0) or false (0).
+* (0,1) = Animation; this contains rgb(amount of frames, speed, interpolation). Speed by default is 24 seconds per frame, and interpolation is a Boolean value (can be set to true (> 0) or false (0).
 
-- (0,2) = Additional armor settings; this contains rgb(emissivity, tint, N/A). Color tinting disabled by default and can be toggled. Emissivity can be set to 1 for partial emissivity and > 1 for full emissivity. For partial emissivity armors, the armor texture to the right will be used as an emissivity map; the alpha of the pixel will act as the emissivity level.
+* (0,2) = Additional armor settings; this contains rgb(emissivity, tint, N/A). Color tinting disabled by default and can be toggled. Emissivity can be set to 1 for partial emissivity and > 1 for full emissivity. For partial emissivity armors, the armor texture to the right will be used as an emissivity map; the alpha of the pixel will act as the emissivity level.
 
 ### Restrictions
 
