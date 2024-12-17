@@ -36,7 +36,7 @@ You must always have a leather_layer_1_overlay.png and leather_layer_2_overlay.p
 
 First, you need to understand that the layer 1 and layer 2 of your armor will be separated into two different textures. You can begin by creating a 32x64 sprite for layer 1 of your armor. Do the same for layer 2.
 
-![leather_armor_layer_1.png](/images/guides/armor/armor-1.png)
+![leather_armor_layer_1.png](/images/guides/armor/armor-1.jpg)
 *leather_armor_layer_1.png*
 
 ### Step 2. Assigning a Color ID
@@ -45,17 +45,17 @@ Before adding a color ID to your armor set, you will need to add a white (#fffff
 
 Note: This white pixel ONLY has to be placed for the very first armor texture; it is not required for every armor texture.
 
-![White pixel placement](/images/guides/armor/armor-2.png)
+![White pixel placement](/images/guides/armor/armor-2.jpg)
 *White pixel is placed at 0,1 on leather_armor_layer_1.png*
 
 Once your white pixel is added, we can assign this armor set with a specific color ID. This will be placed above the white pixel (0,0) and can be set to any color, but if this is your first time setting up custom armors, I recommend setting it to something simple like red (rgb(255,0,0)).
 
-![Color ID assignment](/images/guides/armor/armor-3.png)
+![Color ID assignment](/images/guides/armor/armor-3.jpg)
 *Color ID is set to red using a pixel at 0,0 on leather_armor_layer_1.png*
 
 If your armor has no animation or emissivity, you're done! Now do the same for your layer_2 and make sure you use the exact same color for the color ID. Once you have both layers complete, they should look like the examples below. If you do not have animated armor or emissivity, skip to step 5.
 
-![Both layers complete](/images/guides/armor/armor-4.png)
+![Color ID assignment](/images/guides/armor/armor-3.jpg) ![Both layers complete](/images/guides/armor/armor-4.jpg)
 *Both leather_armor_layer_1.png and leather_armor_layer_2.png have the same color ID at 0,0 and the same white pixel at 0,1.*
 
 ### Step 3. Animation (Optional)
@@ -64,14 +64,14 @@ If you have an animated armor set and want to animate it, first you need to do i
 
 The example to the right would allow for the leather overlay pieces to switch color every 'x' ticks that we set in our "settings pixel."
 
-![Animation frames](/images/guides/armor/armor-5.png)
+![Animation frames](/images/guides/armor/armor-5.jpg)
 *leather_armor_layer_1.png expanded vertically to add animation frames.*
 
 ### Step 4. Emissivity (Optional)
 
 If you want to have your armor set, or portions of it, emissive (glow in the dark essentially; similar to glow squids), you will have to create a copy of your armor texture to the right. This will be treated as an emissivity map; the opacity of the pixel will contribute to the emissivity level (black = no emissivity, white = full emissivity).
 
-![Emissivity mapping](/images/guides/armor/armor-6.png)
+![Emissivity mapping](/images/guides/armor/armor-6.jpg)
 *leather_armor_layer_1.png expanded horizontally with no color ID identifier for the second one. This allows an emissive map to take place.*
 
 Emissivity also works with animated armor textures, just make sure you create an emissivity map for each frame.
@@ -80,7 +80,7 @@ Emissivity also works with animated armor textures, just make sure you create an
 
 If you want to add multiple armor sets, you can do so by adding them horizontally to the right as shown in the example below. The only thing you must note, you cannot have the same color ID "settings pixel" for multiple armor textures; you will have to have a unique RGB value for each armor texture.
 
-![Multiple armor sets](/images/guides/armor/armor-7.png)
+![Multiple armor sets](/images/guides/armor/armor-7.jpg)
 *Example of 5 total armor sets.
 The armor set with a blue color ID will have an emissive map due to the expanded emissive mapping.*
 
@@ -94,5 +94,5 @@ Once converted to a decimal value, you can use the following command in-game for
 /give @s leather_helmet{display:{color:16711680}}
 ```
 
-![RGB to decimal conversion](/images/guides/armor/armor-8.png)
+![RGB to decimal conversion](/images/guides/armor/armor-8.jpg)
 *Using the color ID in 0,0 we can convert that into a decimal value for use in-game.*
