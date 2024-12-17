@@ -54,7 +54,7 @@ Once your white pixel is added, we can assign this armor set with a specific col
 
 If your armor has no animation or emissivity, you're done! Now do the same for your layer_2 and make sure you use the exact same color for the color ID. Once you have both layers complete, they should look like the examples below. If you do not have animated armor or emissivity, skip to step 5.
 
-![Color ID assignment](/images/guides/armor/armor-3.jpg) ![Both layers complete](/images/guides/armor/armor-4.jpg)
+![Color ID assignment](/images/guides/armor/armor-3.jpg)![Both layers complete](/images/guides/armor/armor-4.jpg)
 *Both leather_armor_layer_1.png and leather_armor_layer_2.png have the same color ID at 0,0 and the same white pixel at 0,1.*
 
 ### Step 3. Animation (Optional)
